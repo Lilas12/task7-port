@@ -6,9 +6,9 @@ const AdminLayout = () => {
   const { bgColor } = useColor()
 
   return (
-    <div style={{ 
-      display: 'flex', 
-      minHeight: '100vh', 
+    <div style={{
+      display: 'flex',
+      minHeight: '100vh',
       background: bgColor,
       transition: 'all 0.5s ease'
     }}>
@@ -158,10 +158,10 @@ const AdminLayout = () => {
         `}
       </style>
 
-      <Sidebar /> 
-      
-      <div style={{ 
-        flex: 1, 
+      <Sidebar />
+
+      <div style={{
+        flex: 1,
         padding: '30px',
         transition: 'all 0.5s ease',
         maxWidth: '1200px',
@@ -183,7 +183,7 @@ const AdminLayout = () => {
               <div className="wave-2" />
               <div className="wave-3" />
               <div className="border-line" />
-              
+
               <div className="inner-box">
                 <div className="big-icon">{item.icon}</div>
                 <h3 className="num">

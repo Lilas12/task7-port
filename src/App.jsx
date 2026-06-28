@@ -1,4 +1,4 @@
-// 1. ÄNDRA IMPORTEN HÄR:
+// Vi byter ut BrowserRouter mot HashRouter här uppe
 import { HashRouter, Routes, Route, Link } from 'react-router-dom'
 import AdminLayout from './components/AdminLayout'
 import UserLayout from './components/UserLayout'
@@ -7,7 +7,7 @@ import './App.css'
 
 function App() {
   return (
-    // 2. ÄNDRA TILL HASHROUTER HÄR (Basename behövs inte längre):
+    // Här använder vi HashRouter istället. (Du behöver ingen 'basename' här!)
     <HashRouter>
       <nav className="navbar">
         <div className="navbar-brand">
