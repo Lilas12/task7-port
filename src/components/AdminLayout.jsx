@@ -10,7 +10,8 @@ const AdminLayout = () => {
       display: 'flex',
       minHeight: '100vh',
       background: bgColor,
-      transition: 'all 0.5s ease'
+      transition: 'all 0.5s ease',
+      overflowX: 'hidden' /* Detta är det enda tillägget – stoppar rullning i sidled helt */
     }} className="admin-container">
       <style>
         {`
