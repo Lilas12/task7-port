@@ -155,9 +155,15 @@ const GetAlphaBit = () => {
       transition: 'all 0.5s ease',
       overflow: 'hidden'
     }}>
-      {/* CSS Media Queries för att göra elementen responsiva på mobilen */}
       <style>
         {`
+          /* Tvingar långa linjer (underlines/streck) att hålla sig inom skärmen oavsett enhet */
+          .message-line {
+            word-break: break-word !important;
+            overflow-wrap: anywhere !important;
+            max-width: 100% !important;
+          }
+
           @media (max-width: 768px) {
             .logo-container {
               width: 150px !important;
@@ -180,9 +186,26 @@ const GetAlphaBit = () => {
               line-height: 1.8 !important;
             }
             .back-button {
-              marginTop: 30px !important;
+              margin-top: 30px !important;
               padding: 10px 35px !important;
               font-size: 16px !important;
+            }
+
+            .bg-circle-1 {
+              width: 200px !important;
+              height: 200px !important;
+              top: -80px !important;
+              right: -80px !important;
+            }
+            .bg-circle-2 {
+              width: 180px !important;
+              height: 180px !important;
+              bottom: -50px !important;
+              left: -50px !important;
+            }
+            .floating-icon {
+              font-size: 22px !important;
+              opacity: 0.05 !important;
             }
           }
         `}
@@ -190,7 +213,7 @@ const GetAlphaBit = () => {
 
       <ParticlesNetwork />
 
-      <div style={{
+      <div className="bg-circle-1" style={{
         position: 'absolute',
         top: '-150px',
         right: '-150px',
@@ -202,7 +225,8 @@ const GetAlphaBit = () => {
         filter: 'blur(60px)',
         zIndex: 0
       }} />
-      <div style={{
+
+      <div className="bg-circle-2" style={{
         position: 'absolute',
         bottom: '-100px',
         left: '-100px',
@@ -218,6 +242,7 @@ const GetAlphaBit = () => {
       {icons.map((item, idx) => (
         <div
           key={idx}
+          className="floating-icon"
           style={{
             position: 'absolute',
             top: item.top,
@@ -229,7 +254,8 @@ const GetAlphaBit = () => {
             animation: `floatIcon ${item.duration} ease-in-out ${item.delay} infinite`,
             zIndex: 0,
             pointerEvents: 'none',
-            opacity: 0.08
+            opacity: 0.08,
+            transition: 'font-size 0.3s ease'
           }}
         >
           <FontAwesomeIcon icon={item.icon} />
@@ -339,7 +365,8 @@ const GetAlphaBit = () => {
 
         <div style={{
           maxWidth: '650px',
-          margin: '0 auto'
+          margin: '0 auto',
+          padding: '0 10px'
         }}>
           {msgLines.map((line, idx) => (
             <p key={idx} className="message-line" style={{
