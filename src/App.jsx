@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+// 1. ÄNDRA IMPORTEN HÄR:
+import { HashRouter, Routes, Route, Link } from 'react-router-dom'
 import AdminLayout from './components/AdminLayout'
 import UserLayout from './components/UserLayout'
 import GetAlphaBit from './components/GetAlphaBit'
@@ -6,8 +7,8 @@ import './App.css'
 
 function App() {
   return (
-    // LÄGG TILL BASENAME HÄR:
-    <BrowserRouter basename="/task7-port">
+    // 2. ÄNDRA TILL HASHROUTER HÄR (Basename behövs inte längre):
+    <HashRouter>
       <nav className="navbar">
         <div className="navbar-brand">
           <span>MyPortfolio</span>
@@ -25,7 +26,7 @@ function App() {
         <Route path="/getalphabit" element={<GetAlphaBit />} />
         <Route path="/" element={<AdminLayout />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
