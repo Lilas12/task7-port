@@ -11,7 +11,7 @@ const AdminLayout = () => {
       minHeight: '100vh',
       background: bgColor,
       transition: 'all 0.5s ease'
-    }}>
+    }} className="admin-container">
       <style>
         {`
           @keyframes borderPulse {
@@ -155,17 +155,35 @@ const AdminLayout = () => {
             animation: numPulse 2.5s ease-in-out infinite;
             display: inline-block;
           }
+
+          /* --- RESPONSIV DESIGN VIA MEDIA QUERIES --- */
+          @media (max-width: 768px) {
+            .admin-container {
+              flex-direction: column !important; /* Staplar Sidebar och Innehåll vertikalt på mobilen */
+            }
+
+            .content-wrapper {
+              padding: 15px !important; /* Mindre padding runt om på mobilen */
+            }
+
+            h1 {
+              font-size: 22px !important; /* Lite mindre välkomsttext */
+              text-align: center;
+            }
+          }
         `}
       </style>
 
       <Sidebar />
 
-      <div style={{
+      <div className="content-wrapper" style={{
         flex: 1,
         padding: '30px',
         transition: 'all 0.5s ease',
         maxWidth: '1200px',
-        margin: '0 auto'
+        margin: '0 auto',
+        width: '100%',
+        boxSizing: 'border-box'
       }}>
         <h1 style={{ fontSize: '28px', color: '#1a1a2e', marginBottom: '20px' }}>
           👋 Welcome, {personalInfo.name}

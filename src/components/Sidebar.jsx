@@ -14,6 +14,19 @@ const SidebarWrapper = styled.div`
   min-height: 100vh;
   box-shadow: 4px 0 30px rgba(0, 0, 0, 0.05);
   border-right: 1px solid rgba(255, 255, 255, 0.3);
+  box-sizing: border-box;
+
+  /* --- RESPONSIV DESIGN FÖR MOBIL (Staplar om till en topp-panel) --- */
+  @media (max-width: 768px) {
+    width: 100%;
+    min-height: auto;
+    padding: 15px;
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 `
 
 const ProfileCard = styled.div`
@@ -27,6 +40,11 @@ const ProfileCard = styled.div`
 
   &:hover {
     background: rgba(102, 126, 234, 0.15);
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+    padding: 12px;
   }
 `
 
@@ -80,12 +98,20 @@ const NavItem = styled.div`
   &.active {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 4px 166px rgba(102, 126, 234, 0.3);
   }
 
   svg {
     font-size: 18px;
     min-width: 20px;
+  }
+
+  @media (max-width: 768px) {
+    margin: 2px 0;
+    padding: 10px 14px;
+    &:hover {
+      transform: none;
+    }
   }
 `
 
@@ -93,12 +119,21 @@ const ThemeSection = styled.div`
   margin-top: 30px;
   padding-top: 20px;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
+
+  @media (max-width: 768px) {
+    margin-top: 10px;
+    padding-top: 10px;
+  }
 `
 
 const ThemeGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 8px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `
 
 const ThemeOption = styled.button`
@@ -123,7 +158,7 @@ const ThemeOption = styled.button`
 
 const Sidebar = () => {
   const { changeColor } = useColor()
-  
+
   // colour options for theme switching
   const themeColours = [
     { label: 'Red', code: '#FF6B6B' },
@@ -153,7 +188,7 @@ const Sidebar = () => {
       </ProfileCard>
 
       {navItems.map((item, idx) => (
-        <Link 
+        <Link
           key={idx}
           to={item.route}
           style={{ textDecoration: 'none' }}
@@ -174,7 +209,7 @@ const Sidebar = () => {
             <ThemeOption
               key={colour.label}
               onClick={() => changeColor(colour.code)}
-              style={{ 
+              style={{
                 background: colour.code,
                 color: ['White', 'Pink'].includes(colour.label) ? '#333' : 'white',
                 borderColor: colour.code === '#F8F9FA' ? '#ddd' : 'transparent'

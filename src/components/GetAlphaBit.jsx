@@ -155,6 +155,39 @@ const GetAlphaBit = () => {
       transition: 'all 0.5s ease',
       overflow: 'hidden'
     }}>
+      {/* CSS Media Queries för att göra elementen responsiva på mobilen */}
+      <style>
+        {`
+          @media (max-width: 768px) {
+            .logo-container {
+              width: 150px !important;
+              height: 150px !important;
+              margin-bottom: 20px !important;
+            }
+            .main-title {
+              font-size: 28px !important;
+              min-height: 45px !important;
+            }
+            .title-blink-cursor {
+              height: 28px !important;
+            }
+            .subtitle {
+              font-size: 15px !important;
+              margin-bottom: 25px !important;
+            }
+            .message-line {
+              font-size: 16px !important;
+              line-height: 1.8 !important;
+            }
+            .back-button {
+              marginTop: 30px !important;
+              padding: 10px 35px !important;
+              font-size: 16px !important;
+            }
+          }
+        `}
+      </style>
+
       <ParticlesNetwork />
 
       <div style={{
@@ -209,10 +242,11 @@ const GetAlphaBit = () => {
         width: '100%',
         maxWidth: '800px',
         padding: '40px 20px',
-        textAlign: 'center'
+        textAlign: 'center',
+        boxSizing: 'border-box'
       }}>
 
-        <div style={{
+        <div className="logo-container" style={{
           margin: '0 auto 30px',
           width: '220px',
           height: '220px',
@@ -272,7 +306,7 @@ const GetAlphaBit = () => {
           💖
         </div>
 
-        <h1 style={{
+        <h1 className="main-title" style={{
           fontSize: '38px',
           fontWeight: '700',
           color: palette.white,
@@ -282,7 +316,7 @@ const GetAlphaBit = () => {
           minHeight: '60px'
         }}>
           {typed}
-          <span style={{
+          <span className="title-blink-cursor" style={{
             display: 'inline-block',
             width: '4px',
             height: '38px',
@@ -293,7 +327,7 @@ const GetAlphaBit = () => {
           }} />
         </h1>
 
-        <p style={{
+        <p className="subtitle" style={{
           color: palette.gray,
           fontSize: '18px',
           marginBottom: '35px',
@@ -308,7 +342,7 @@ const GetAlphaBit = () => {
           margin: '0 auto'
         }}>
           {msgLines.map((line, idx) => (
-            <p key={idx} style={{
+            <p key={idx} className="message-line" style={{
               color: palette.white,
               lineHeight: 2.2,
               fontSize: '20px',
@@ -325,7 +359,7 @@ const GetAlphaBit = () => {
         </div>
 
         <Link to="/admin">
-          <button style={{
+          <button className="back-button" style={{
             marginTop: '45px',
             padding: '14px 50px',
             borderRadius: '50px',

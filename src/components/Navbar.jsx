@@ -12,6 +12,13 @@ const NavbarContainer = styled.nav`
   position: sticky;
   top: 0;
   z-index: 100;
+
+  /* Responsiv justering för telefoner */
+  @media (max-width: 576px) {
+    padding: 15px;
+    flex-direction: column;
+    gap: 12px;
+  }
 `
 
 const Brand = styled.div`
@@ -22,6 +29,11 @@ const Brand = styled.div`
   font-weight: 700;
   font-size: 20px;
   margin-right: 20px;
+
+  /* Centrera loggan på mobilen */
+  @media (max-width: 576px) {
+    margin-right: 0;
+  }
 `
 
 const ColorGroup = styled.div`
@@ -29,6 +41,13 @@ const ColorGroup = styled.div`
   gap: 10px;
   align-items: center;
   margin-left: auto;
+
+  /* Centrera knapparna och ta bort margin-left på mobilen */
+  @media (max-width: 576px) {
+    margin-left: 0;
+    justify-content: center;
+    width: 100%;
+  }
 `
 
 const ColorButton = styled.button`
@@ -49,11 +68,17 @@ const ColorButton = styled.button`
   &:active {
     transform: scale(0.9);
   }
+
+  /* Gör knapparna aningen lättare att klicka på på pekskärmar */
+  @media (max-width: 576px) {
+    width: 38px;
+    height: 38px;
+  }
 `
 
 const Navbar = () => {
   const { changeColor } = useColor()
-  
+
   const colorOptions = [
     { value: '#FF6B6B' },
     { value: '#51CF66' },
