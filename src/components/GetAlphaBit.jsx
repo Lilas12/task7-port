@@ -1,7 +1,7 @@
 import { useColor } from '../context/ColorContext'
 import { companyInfo } from '../data/personalData'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { 
+import {
   faArrowLeft,
   faLaptopCode,
   faCode,
@@ -13,7 +13,7 @@ import {
   faGear,
   faSpinner
 } from '@fortawesome/free-solid-svg-icons'
-import { 
+import {
   faHtml5,
   faCss3Alt,
   faJs,
@@ -144,7 +144,7 @@ const GetAlphaBit = () => {
   }
 
   return (
-    <div style={{ 
+    <div style={{
       minHeight: '100vh',
       padding: 0,
       display: 'flex',
@@ -241,8 +241,8 @@ const GetAlphaBit = () => {
           e.currentTarget.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)'
           e.currentTarget.style.boxShadow = `0 30px 80px ${palette.deep}66`
         }}>
-          <img 
-            src="/GetAlphaBit.jpg"
+          <img
+            src="./GetAlphaBit.jpg"
             alt="GetAlphaBit Logo"
             style={{
               width: '100%',
@@ -263,8 +263,8 @@ const GetAlphaBit = () => {
         </div>
 
         <div style={{
+          margin: '0 auto 15px',
           fontSize: '40px',
-          marginBottom: '15px',
           animation: 'pulse 2s infinite',
           color: palette.light,
           textShadow: `0 4px 30px ${palette.blue}66`
